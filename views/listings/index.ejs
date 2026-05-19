@@ -1,0 +1,45 @@
+<% layout("/layouts/boilerplate") %>
+
+   
+    <h3>All listings</h3>
+    <!--<form action="/listings/new" method="GET">
+        <button>Create New Listing</button>
+    </form>-->
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+
+              <% for(let listings of allListings ){ %>
+                <a href="/listings/<%= listings._id %>" class="listing-link">
+                <div class="card col listing-card">
+                <img src="<%= listings.image?.url?.trim() || "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" %>"
+                onerror="this.onerror=null; this.src='https:images.unsplash.com/photo-1566073771259-6a8506099945';"  class="card-img-top" alt="listings_image" style="height: 20rem;">
+
+                 <div class="card-img-overlay">Roshan</div>
+                <div class="card-body">
+                    <p class="card-text">
+                    
+                               <b> <%= listings.title %></b> <br>
+                            &#8377; <%=   listings.price.toLocaleString("en-IN") %> / Night
+
+                    </p>
+                </div>
+
+                </div>
+                </a>
+              <% } %>
+
+    </div>
+   
+      
+
+
+     
+  
+
+
+
+
+
+    
+    
+
