@@ -65,7 +65,7 @@ store.on("error",(err)=>{
     console.log("ERROR IN MONGO SESSION STORE", err);
 });
 
-const sessionOption={
+const sessionOption={     
     store,                //this add the cookie on the inspect
     secret:process.env.SECRET,
     resave:false,
@@ -109,6 +109,9 @@ app.use((req,res,next)=>{
 
 
 //[INDEX ROUTE] ---->display all the list of listings
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
 
 app.use("/listings",listingsRouter);
 //---------------------------------------------------------------------------------------------
